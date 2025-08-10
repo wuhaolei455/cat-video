@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { useFlowContext } from '../contexts/FlowContext';
+import { useFlowAdapter } from '../hooks/useFlowAdapter';
 
 const StatusIndicator: React.FC = () => {
-  const { state } = useFlowContext();
+  const { state, stateManager } = useFlowAdapter();
 
   const getStatusText = () => {
     if (state.isCompleted) {
@@ -25,6 +25,9 @@ const StatusIndicator: React.FC = () => {
       <span className="status-text">{getStatusText()}</span>
       <div className="status-details">
         步骤: {state.currentStep}/{state.totalSteps}
+      </div>
+      <div className="status-manager">
+        状态管理: {stateManager}
       </div>
     </div>
   );

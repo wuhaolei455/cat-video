@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { useFlowContext } from '../contexts/FlowContext';
+import { useFlowAdapter } from '../hooks/useFlowAdapter';
 
 const ProgressBar: React.FC = () => {
-  const { state } = useFlowContext();
+  const { state } = useFlowAdapter();
   const progress = (state.currentStep / state.totalSteps) * 100;
 
   return (

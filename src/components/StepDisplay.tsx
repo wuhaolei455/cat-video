@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { useFlowContext } from '../contexts/FlowContext';
+import { useFlowAdapter } from '../hooks/useFlowAdapter';
 
 const StepDisplay: React.FC = () => {
-  const { state, goToStep } = useFlowContext();
+  const { state, goToStep } = useFlowAdapter();
 
   const steps = [
     { id: 1, title: '基本信息', description: '填写用户基本信息' },

@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { useFlowContext } from '../contexts/FlowContext';
+import { useFlowAdapter } from '../hooks/useFlowAdapter';
 
 const NavigationButtons: React.FC = () => {
-  const { state, nextStep, prevStep, reset } = useFlowContext();
+  const { state, nextStep, prevStep, reset } = useFlowAdapter();
 
   return (
     <div className="navigation-buttons">

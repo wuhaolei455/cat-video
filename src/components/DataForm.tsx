@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useFlowContext } from '../contexts/FlowContext';
+import { useFlowAdapter } from '../hooks/useFlowAdapter';
 
 const DataForm: React.FC = () => {
-  const { state, setData } = useFlowContext();
+  const { state, setData } = useFlowAdapter();
   const [localData, setLocalData] = useState<Record<string, string>>({});
 
   const handleInputChange = (key: string, value: string) => {

@@ -25,7 +25,7 @@ export default function Home() {
         </main>
 
         <footer className="text-center py-8">
-          <div className="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+          <div className="text-sm text-gray-500 dark:text-gray-400 space-y-4">
             <p>
               <strong>组合模式特点:</strong>
             </p>
@@ -35,6 +35,28 @@ export default function Home() {
               <li>📦 每个子组件职责单一，易于维护</li>
               <li>🎯 提高代码复用性和可测试性</li>
             </ul>
+            
+            <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex justify-center space-x-4">
+                <a 
+                  href="/"
+                  className="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 
+                             text-white font-medium rounded-lg transition-colors duration-200"
+                >
+                  🧩 useState 版本 (当前)
+                </a>
+                <a 
+                  href="/reducer"
+                  className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 
+                             text-white font-medium rounded-lg transition-colors duration-200"
+                >
+                  🔄 useReducer 版本 →
+                </a>
+              </div>
+              <p className="mt-2 text-xs">
+                相同UI和功能，对比不同的状态管理方式
+              </p>
+            </div>
           </div>
         </footer>
       </div>

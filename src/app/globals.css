@@ -210,3 +210,16 @@ body {
 .debug-info pre {
   @apply text-xs text-gray-600 dark:text-gray-400 overflow-auto max-h-40;
 }
+
+/* useReducer演示的简单样式补充 */
+.reducer-info {
+  @apply mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded border-l-4 border-green-500;
+}
+
+.reducer-info p {
+  @apply text-sm text-green-700 dark:text-green-300 mb-1;
+}
+
+.status-manager {
+  @apply text-xs opacity-75 mt-1;
+}

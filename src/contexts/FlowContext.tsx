@@ -98,9 +98,9 @@ export const FlowProvider: React.FC<FlowProviderProps> = ({
   };
 
   return (
-    <FlowContext value={contextValue}>
+    <FlowContext.Provider value={contextValue}>
       {children}
-    </FlowContext>
+    </FlowContext.Provider>
   );
 };
 
