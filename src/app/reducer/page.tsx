@@ -54,13 +54,13 @@ export default function ReducerPage() {
             </div>
             
             <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex justify-center space-x-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <a 
                   href="/"
                   className="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 
                              text-white font-medium rounded-lg transition-colors duration-200"
                 >
-                  ← useState 版本
+                  🧩 useState 版本
                 </a>
                 <a 
                   href="/reducer"
@@ -69,9 +69,16 @@ export default function ReducerPage() {
                 >
                   🔄 useReducer 版本 (当前)
                 </a>
+                <a 
+                  href="/video"
+                  className="inline-flex items-center px-4 py-2 bg-purple-500 hover:bg-purple-600 
+                             text-white font-medium rounded-lg transition-colors duration-200"
+                >
+                  🎥 视频模块演示
+                </a>
               </div>
               <p className="mt-2 text-xs">
-                相同的UI和功能，不同的状态管理方式
+                探索不同的状态管理方式和视频播放器技术
               </p>
             </div>
           </div>
