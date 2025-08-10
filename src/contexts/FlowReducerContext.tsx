@@ -26,7 +26,7 @@ const flowReducer = (state: FlowState, action: FlowAction): FlowState => {
       return {
         ...state,
         currentStep: nextStep,
-        isCompleted: nextStep >= state.totalSteps
+        isCompleted: state.currentStep >= state.totalSteps
       };
     
     case 'PREV_STEP':
