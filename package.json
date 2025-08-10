@@ -16,6 +16,7 @@
   "dependencies": {
     "hls.js": "^1.6.9",
     "jol-player": "^4.0.0",
+    "leo-video": "file:./packages/leo-video",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

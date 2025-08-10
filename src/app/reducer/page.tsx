@@ -69,17 +69,24 @@ export default function ReducerPage() {
                 >
                   🔄 useReducer 版本 (当前)
                 </a>
-                <a 
-                  href="/video"
-                  className="inline-flex items-center px-4 py-2 bg-purple-500 hover:bg-purple-600 
-                             text-white font-medium rounded-lg transition-colors duration-200"
-                >
-                  🎥 视频模块演示
-                </a>
-              </div>
-              <p className="mt-2 text-xs">
-                探索不同的状态管理方式和视频播放器技术
-              </p>
+                            <a 
+              href="/video"
+              className="inline-flex items-center px-4 py-2 bg-purple-500 hover:bg-purple-600 
+                         text-white font-medium rounded-lg transition-colors duration-200"
+            >
+              🎥 视频模块演示
+            </a>
+            <a 
+              href="/package-demo"
+              className="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 
+                         text-white font-medium rounded-lg transition-colors duration-200"
+            >
+              📦 Package 演示
+            </a>
+          </div>
+          <p className="mt-2 text-xs">
+            探索不同的状态管理方式和视频播放器技术
+          </p>
             </div>
           </div>
         </footer>

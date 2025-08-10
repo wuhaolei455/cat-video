@@ -1,0 +1,64 @@
+{
+  "name": "leo-video",
+  "version": "1.0.0",
+  "description": "A modern, TypeScript-first video player with HLS support, event-driven architecture, and React integration",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "video",
+    "player",
+    "hls",
+    "streaming",
+    "react",
+    "typescript",
+    "html5",
+    "events"
+  ],
+  "author": "Leo Video Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leo-video/leo-video.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leo-video/leo-video/issues"
+  },
+  "homepage": "https://github.com/leo-video/leo-video#readme",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "hls.js": "^1.4.12"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.1",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

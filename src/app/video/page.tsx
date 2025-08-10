@@ -189,8 +189,22 @@ player.setPlaybackRate(1.5);`}</code>
             >
               🔄 useReducer 版本
             </a>
+            <a
+              href="/video"
+              className="inline-flex items-center px-6 py-3 bg-purple-500 hover:bg-purple-600 
+                         text-white font-medium rounded-lg transition-colors duration-200"
+            >
+              🎥 视频模块演示 (当前)
+            </a>
+            <a
+              href="/package-demo"
+              className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 
+                         text-white font-medium rounded-lg transition-colors duration-200"
+            >
+              📦 Package 演示
+            </a>
           </div>
-          <p className="mt-4 text-sm text-gray-500">查看其他状态管理模式演示</p>
+          <p className="mt-4 text-sm text-gray-500">查看其他状态管理模式和视频播放器技术演示</p>
         </div>
       </div>
     </div>
