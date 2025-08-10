@@ -24,3 +24,189 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 组合模式Demo样式 */
+.controller-container {
+  @apply space-y-6;
+}
+
+.controller-header {
+  @apply flex justify-between items-center mb-6 pb-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+.controller-header h2 {
+  @apply text-2xl font-bold text-gray-800 dark:text-white;
+}
+
+.controller-content {
+  @apply space-y-8;
+}
+
+/* 进度条样式 */
+.progress-bar-container {
+  @apply space-y-2;
+}
+
+.progress-bar-header {
+  @apply flex justify-between items-center text-sm font-medium text-gray-600 dark:text-gray-400;
+}
+
+.progress-bar-track {
+  @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-300 ease-in-out;
+}
+
+/* 状态指示器样式 */
+.status-indicator {
+  @apply px-4 py-2 rounded-lg text-sm font-medium;
+}
+
+.status-completed {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+}
+
+.status-in-progress {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+}
+
+.status-details {
+  @apply text-xs opacity-75 mt-1;
+}
+
+/* 步骤显示样式 */
+.step-display h3 {
+  @apply text-lg font-semibold text-gray-800 dark:text-white mb-4;
+}
+
+.steps-container {
+  @apply space-y-3;
+}
+
+.step-item {
+  @apply flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all duration-200;
+}
+
+.step-item:not(.active):not(.completed) {
+  @apply border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600;
+}
+
+.step-item.active {
+  @apply border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-md;
+}
+
+.step-item.completed {
+  @apply border-green-500 bg-green-50 dark:bg-green-900/20;
+}
+
+.step-number {
+  @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-4;
+}
+
+.step-item:not(.active):not(.completed) .step-number {
+  @apply bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-300;
+}
+
+.step-item.active .step-number {
+  @apply bg-blue-500 text-white;
+}
+
+.step-item.completed .step-number {
+  @apply bg-green-500 text-white;
+}
+
+.step-content {
+  @apply flex-1;
+}
+
+.step-title {
+  @apply font-medium text-gray-800 dark:text-white;
+}
+
+.step-description {
+  @apply text-sm text-gray-600 dark:text-gray-400 mt-1;
+}
+
+/* 表单样式 */
+.data-form {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-6;
+}
+
+.form-step h4 {
+  @apply text-xl font-semibold text-gray-800 dark:text-white mb-6;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+.form-group label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+}
+
+.form-group input,
+.form-group select {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md 
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+         bg-white dark:bg-gray-700 text-gray-900 dark:text-white;
+}
+
+.confirmation-data {
+  @apply space-y-4;
+}
+
+.confirmation-data h5 {
+  @apply text-lg font-medium text-gray-800 dark:text-white mb-4;
+}
+
+.data-item {
+  @apply flex flex-col sm:flex-row sm:items-center p-3 bg-white dark:bg-gray-700 rounded-lg;
+}
+
+.data-item strong {
+  @apply text-gray-700 dark:text-gray-300 sm:w-24 sm:flex-shrink-0;
+}
+
+/* 导航按钮样式 */
+.navigation-buttons {
+  @apply flex flex-col sm:flex-row justify-between items-center gap-4;
+}
+
+.button-group {
+  @apply flex gap-3;
+}
+
+.nav-button {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 
+         focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.prev-button {
+  @apply bg-gray-500 hover:bg-gray-600 text-white focus:ring-gray-500
+         disabled:bg-gray-300 disabled:cursor-not-allowed disabled:hover:bg-gray-300;
+}
+
+.next-button {
+  @apply bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500
+         disabled:bg-blue-300 disabled:cursor-not-allowed disabled:hover:bg-blue-300;
+}
+
+.reset-button {
+  @apply bg-orange-500 hover:bg-orange-600 text-white focus:ring-orange-500
+         sm:ml-auto;
+}
+
+/* 调试信息样式 */
+.debug-info {
+  @apply mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700;
+}
+
+.debug-info h3 {
+  @apply text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+}
+
+.debug-info pre {
+  @apply text-xs text-gray-600 dark:text-gray-400 overflow-auto max-h-40;
+}
