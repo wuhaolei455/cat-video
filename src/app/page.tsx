@@ -59,6 +59,13 @@ export default function Home() {
                 >
                   🎥 视频模块演示
                 </a>
+                <a 
+                  href="/form-demo"
+                  className="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 
+                             text-white font-medium rounded-lg transition-colors duration-200"
+                >
+                  📝 表单设计模式演示
+                </a>
               </div>
               <p className="mt-2 text-xs">
                 探索不同的状态管理方式和视频播放器技术

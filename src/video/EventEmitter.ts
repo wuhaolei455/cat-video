@@ -10,7 +10,7 @@ import type {
 } from './types';
 
 // 泛型事件发射器类
-export class VideoEventEmitter<TEventMap extends Record<string, any> = VideoEventMap> {
+export class VideoEventEmitter<TEventMap extends Record<keyof TEventMap, any> = VideoEventMap> {
   private eventListeners: Map<keyof TEventMap, Set<Function>> = new Map();
   private onceListeners: Map<keyof TEventMap, Set<Function>> = new Map();
   private maxListeners: number = 10;
