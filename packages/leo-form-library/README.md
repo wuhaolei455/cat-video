@@ -772,6 +772,138 @@ const CustomInput = withCustomFeature(withValidation(Input));
 - useCallback优化事件处理函数
 - 懒加载和代码分割
 
+## 🚀 高级扩展功能
+
+### 新增的高阶组件 (HOC)
+
+基于原有的`withValidation`和`withFormField`，我们新增了多个功能强大的HOC：
+
+#### 1. withDebounce - 防抖输入
+```typescript
+import { withDebounce, Input } from '@leo-video/form-library';
+
+const DebouncedInput = withDebounce(Input);
+
+<DebouncedInput
+  debounceMs={500}
+  onDebouncedChange={(value) => handleSearch(value)}
+  placeholder="输入搜索关键词..."
+/>
+```
+
+#### 2. withAsyncValidation - 异步验证
+```typescript
+import { withAsyncValidation, Input } from '@leo-video/form-library';
+
+const AsyncValidatedInput = withAsyncValidation(Input);
+
+const checkUsername = async (username: string): Promise<string | null> => {
+  const response = await fetch(`/api/check-username?username=${username}`);
+  const data = await response.json();
+  return data.available ? null : '用户名已被使用';
+};
+
+<AsyncValidatedInput
+  asyncValidationRule={{
+    validator: checkUsername,
+    debounceMs: 800
+  }}
+  onAsyncValidationStart={() => setLoading(true)}
+  onAsyncValidationEnd={() => setLoading(false)}
+/>
+```
+
+#### 3. withLocalStorage - 本地存储
+```typescript
+import { withLocalStorage, Input } from '@leo-video/form-library';
+
+const StorageInput = withLocalStorage(Input);
+
+<StorageInput
+  storageKey="user-draft"
+  autoSave={true}
+  saveDelay={1000}
+  onRestore={(value) => console.log('恢复数据:', value)}
+/>
+```
+
+#### 4. withConditionalRender - 条件渲染
+```typescript
+import { withConditionalRender, Input } from '@leo-video/form-library';
+
+const ConditionalInput = withConditionalRender(Input);
+
+<ConditionalInput
+  condition={(values) => values.userType === 'business'}
+  formValues={formValues}
+  animateToggle={true}
+/>
+```
+
+### 新增组件
+
+#### DatePicker - 日期选择器
+```typescript
+import { DatePicker, ValidatedDatePicker } from '@leo-video/form-library';
+
+<ValidatedDatePicker
+  label="出生日期"
+  maxDate={new Date()}
+  validationRules={{ required: '请选择出生日期' }}
+  locale="zh-CN"
+/>
+```
+
+### 高级组合示例
+
+#### 超级输入框 - 多重HOC组合
+```typescript
+// 防抖 + 验证 + 字段样式
+const SuperInput = withFormField(withValidation(withDebounce(Input)));
+
+<SuperInput
+  label="邮箱地址"
+  debounceMs={400}
+  validationRules={{
+    required: '邮箱不能为空',
+    pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: '邮箱格式不正确' }
+  }}
+  onDebouncedChange={(value) => console.log('防抖后的值:', value)}
+/>
+```
+
+#### 搜索输入框 - 防抖 + 本地存储
+```typescript
+const SearchInput = withLocalStorage(withDebounce(Input));
+
+<SearchInput
+  storageKey="search-history"
+  debounceMs={300}
+  onDebouncedChange={handleSearch}
+/>
+```
+
+#### 条件增强输入框
+```typescript
+const ConditionalEnhancedInput = withConditionalRender(withFormField(withValidation(Input)));
+
+<ConditionalEnhancedInput
+  condition={(values) => values.showAdvanced}
+  formValues={formData}
+  validationRules={{ required: true }}
+  animateToggle={true}
+/>
+```
+
+### 完整的实战示例
+
+查看 `examples/AdvancedFormExample.tsx` 了解所有高级功能的完整使用示例，包括：
+- 🔍 异步用户名验证
+- ⚡ 防抖搜索功能  
+- 💾 自动保存草稿
+- 🔀 动态条件字段
+- 🚀 多重HOC组合
+
 ### 扩展指南
 
 #### 添加新的基础组件

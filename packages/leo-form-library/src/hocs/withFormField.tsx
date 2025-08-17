@@ -24,7 +24,7 @@ function withFormField<P extends object>(
       showError = true,
       showHelperText = true,
       fieldSize = 'medium',
-      ...props
+      ...restProps
     }, ref) => {
       
       const containerClasses = cn(
@@ -33,16 +33,15 @@ function withFormField<P extends object>(
         containerClassName
       );
 
-      // 为子组件添加尺寸属性
+      // 只传递原始组件需要的属性，排除 HOC 的配置参数
       const enhancedProps = {
-        ...props,
+        ...restProps,
         size: fieldSize,
-        ref
       } as P;
 
       return (
         <div className={containerClasses}>
-          <WrappedComponent {...enhancedProps} />
+          <WrappedComponent {...enhancedProps} ref={ref} />
           
           {/* 可以在这里添加额外的装饰或功能 */}
           {fieldSize === 'large' && (

@@ -14,6 +14,7 @@ import Select from './Select';
 import Textarea from './Textarea';
 import withValidation from '../hocs/withValidation';
 import withFormField from '../hocs/withFormField';
+import withDebounce from '../hocs/withDebounce';
 
 // 组合高阶组件创建增强版本
 export const ValidatedInput = withValidation(Input);
@@ -25,7 +26,12 @@ export const FormFieldInput = withFormField(Input);
 export const FormFieldSelect = withFormField(Select);
 export const FormFieldTextarea = withFormField(Textarea);
 
+// 防抖组件
+export const DebouncedInput = withDebounce(Input);
+export const DebouncedSelect = withDebounce(Select);
+export const DebouncedTextarea = withDebounce(Textarea);
+
 // 完全增强的组件（同时具有验证和字段样式）
-export const EnhancedInput = withFormField(withValidation(Input));
-export const EnhancedSelect = withFormField(withValidation(Select));
-export const EnhancedTextarea = withFormField(withValidation(Textarea));
+export const EnhancedInput = withDebounce(withFormField(withValidation(Input)));
+export const EnhancedSelect = withDebounce(withFormField(withValidation(Select)));
+export const EnhancedTextarea = withDebounce(withFormField(withValidation(Textarea)));

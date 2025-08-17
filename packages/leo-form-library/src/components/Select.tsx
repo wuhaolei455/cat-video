@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useId } from 'react';
 import { SelectProps } from '../types';
-import { generateId, cn } from '../utils';
+import { cn } from '../utils';
 
 /**
  * Select组件 - 使用forwardRef模式
@@ -21,7 +21,8 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     size = 'medium',
     ...props
   }, ref) => {
-    const selectId = id || generateId('select');
+    const reactId = useId();
+    const selectId = id || `select-${reactId}`;
     const hasError = Boolean(error);
 
     const baseClasses = 'w-full transition-colors duration-200 focus:outline-none cursor-pointer';

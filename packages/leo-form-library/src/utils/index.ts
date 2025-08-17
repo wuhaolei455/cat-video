@@ -1,8 +1,16 @@
-// 生成唯一ID的工具函数
-let idCounter = 0;
+// 生成唯一ID的工具函数 - 修复SSR水合问题
+// 注意：这个函数主要用于向后兼容，新组件应该使用 useId Hook
 export const generateId = (prefix: string = 'field'): string => {
-  idCounter += 1;
-  return `${prefix}-${idCounter}`;
+  // 在SSR环境下，返回一个固定格式的ID，避免水合不匹配
+  if (typeof window === 'undefined') {
+    // 服务端渲染时使用固定ID
+    return `${prefix}-ssr`;
+  }
+  
+  // 客户端使用随机ID
+  const timestamp = Date.now().toString(36);
+  const randomPart = Math.random().toString(36).substring(2, 8);
+  return `${prefix}-${timestamp}-${randomPart}`;
 };
 
 // 类名合并工具函数（简化版的clsx）

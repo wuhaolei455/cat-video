@@ -14,7 +14,7 @@ function withValidation<P extends object>(
       validationRules,
       validateOnChange = true,
       validateOnBlur = true,
-      ...props
+      ...restProps
     }, ref) => {
       const [error, setError] = useState<string>('');
       const [touched, setTouched] = useState(false);
@@ -37,10 +37,10 @@ function withValidation<P extends object>(
         }
         
         // 调用原始的onChange
-        if ('onChange' in props && typeof (props as any).onChange === 'function') {
-          (props as any).onChange(event);
+        if ('onChange' in restProps && typeof (restProps as any).onChange === 'function') {
+          (restProps as any).onChange(event);
         }
-      }, [validate, validateOnChange, touched, props]);
+      }, [validate, validateOnChange, touched, restProps]);
 
       // 处理失焦事件
       const handleBlur = useCallback((event: any) => {
@@ -52,21 +52,20 @@ function withValidation<P extends object>(
         }
         
         // 调用原始的onBlur
-        if ('onBlur' in props && typeof (props as any).onBlur === 'function') {
-          (props as any).onBlur(event);
+        if ('onBlur' in restProps && typeof (restProps as any).onBlur === 'function') {
+          (restProps as any).onBlur(event);
         }
-      }, [validate, validateOnBlur, props]);
+      }, [validate, validateOnBlur, restProps]);
 
-      // 合并props
+      // 只传递原始组件需要的属性，排除 HOC 的配置参数
       const enhancedProps = {
-        ...props,
-        error: error || (props as any).error,
+        ...restProps,
+        error: error || (restProps as any).error,
         onChange: handleChange,
         onBlur: handleBlur,
-        ref
       } as P;
 
-      return <WrappedComponent {...enhancedProps} />;
+      return <WrappedComponent {...enhancedProps} ref={ref} />;
     }
   );
 

@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useId } from 'react';
 import { TextareaProps } from '../types';
-import { generateId, cn } from '../utils';
+import { cn } from '../utils';
 
 /**
  * Textarea组件 - 使用forwardRef模式
@@ -21,7 +21,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     maxRows = 8,
     ...props
   }, ref) => {
-    const textareaId = id || generateId('textarea');
+    const reactId = useId();
+    const textareaId = id || `textarea-${reactId}`;
     const hasError = Boolean(error);
 
     const baseClasses = 'w-full transition-colors duration-200 focus:outline-none resize-vertical';

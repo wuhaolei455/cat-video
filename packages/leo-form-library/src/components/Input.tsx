@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useId } from 'react';
 import { InputProps } from '../types';
-import { generateId, cn } from '../utils';
+import { cn } from '../utils';
 
 /**
  * Input组件 - 使用forwardRef模式
@@ -21,7 +21,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     endAdornment,
     ...props
   }, ref) => {
-    const inputId = id || generateId('input');
+    const reactId = useId();
+    const inputId = id || `input-${reactId}`;
     const hasError = Boolean(error);
 
     const baseClasses = 'w-full transition-colors duration-200 focus:outline-none';

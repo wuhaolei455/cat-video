@@ -374,6 +374,11 @@ export default function FormDemoPage() {
                 minLength: 5
               }}
               fieldSize="large"
+              debounceTime={3000}
+              immediate={true}
+              onDebouncedChange={() => {
+                console.log('debounced');
+              }}
             />
             
             <CustomFormFieldSelect
