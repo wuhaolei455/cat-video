@@ -37,38 +37,73 @@ export default function Home() {
             </ul>
             
             <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto">
                 <a 
                   href="/"
                   className="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 
-                             text-white font-medium rounded-lg transition-colors duration-200"
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
                 >
                   🧩 useState 版本 (当前)
                 </a>
                 <a 
                   href="/reducer"
                   className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 
-                             text-white font-medium rounded-lg transition-colors duration-200"
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
                 >
                   🔄 useReducer 版本
                 </a>
                 <a 
                   href="/video"
                   className="inline-flex items-center px-4 py-2 bg-purple-500 hover:bg-purple-600 
-                             text-white font-medium rounded-lg transition-colors duration-200"
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
                 >
                   🎥 视频模块演示
                 </a>
                 <a 
                   href="/form-demo"
                   className="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 
-                             text-white font-medium rounded-lg transition-colors duration-200"
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
                 >
                   📝 表单设计模式演示
                 </a>
+                <a 
+                  href="/render-props-demo"
+                  className="inline-flex items-center px-4 py-2 bg-pink-500 hover:bg-pink-600 
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                >
+                  🎨 Render Props 示例
+                </a>
+                <a 
+                  href="/render-props-practice"
+                  className="inline-flex items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-600 
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                >
+                  ✍️ Render Props 练习
+                </a>
+                <a 
+                  href="/debounce-test"
+                  className="inline-flex items-center px-4 py-2 bg-teal-500 hover:bg-teal-600 
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                >
+                  ⏱️ 防抖功能测试
+                </a>
+                <a 
+                  href="/ssr-test"
+                  className="inline-flex items-center px-4 py-2 bg-red-500 hover:bg-red-600 
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                >
+                  🔧 SSR 水合测试
+                </a>
+                <a 
+                  href="/ref-demo"
+                  className="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                >
+                  🎯 forwardRef 演示
+                </a>
               </div>
-              <p className="mt-2 text-xs">
-                探索不同的状态管理方式和视频播放器技术
+              <p className="mt-4 text-xs">
+                探索不同的 React 设计模式、状态管理方式和高级功能
               </p>
             </div>
           </div>
