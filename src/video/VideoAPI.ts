@@ -17,6 +17,7 @@ import type {
 } from './types';
 
 import { VideoEventEmitterTyped } from './EventEmitter';
+import { browserCompatibility } from '../utils/BrowserCompatibility';
 
 // HTML5 Video API 封装类
 export class HTML5VideoAPI<TConfig extends VideoConfig = VideoConfig> 

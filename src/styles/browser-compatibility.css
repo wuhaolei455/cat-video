@@ -1,0 +1,327 @@
+/* 浏览器兼容性CSS - 解决Safari和Chrome差异 */
+
+/* === 字体兼容性 === */
+body {
+  /* Safari优化字体渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* 统一字体栈 - Safari和Chrome都支持 */
+  font-family: 
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Helvetica Neue",
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+/* === Safari特定修复 === */
+/* Safari滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Safari按钮样式重置 */
+button, input[type="button"], input[type="submit"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* Safari输入框样式统一 */
+input, textarea, select {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* === 视频播放器兼容性 === */
+video {
+  /* Safari视频播放器样式 */
+  -webkit-playsinline: true;
+  
+  /* 统一视频控件样式 */
+  background-color: #000;
+}
+
+/* Safari视频控件隐藏/显示 */
+video::-webkit-media-controls {
+  display: inherit !important;
+}
+
+video::-webkit-media-controls-panel {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Chrome视频控件样式 */
+video::-webkit-media-controls-enclosure {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* === 布局兼容性 === */
+/* Flexbox Safari兼容性 */
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.items-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.justify-between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* Grid布局Safari兼容性 */
+.grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+/* === 渐变兼容性 === */
+.bg-gradient-to-br {
+  background: #dbeafe; /* 降级背景色 */
+  background: -webkit-linear-gradient(315deg, #dbeafe 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+}
+
+.dark .bg-gradient-to-br {
+  background: #111827; /* 降级背景色 */
+  background: -webkit-linear-gradient(315deg, #111827 0%, #1f2937 100%);
+  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+}
+
+/* === 圆角兼容性 === */
+.rounded-xl {
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+}
+
+.rounded-lg {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+
+.rounded-full {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+/* === 阴影兼容性 === */
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  -webkit-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  -moz-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* === 过渡动画兼容性 === */
+.transition-colors {
+  -webkit-transition: color 150ms ease-in-out, background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+  -moz-transition: color 150ms ease-in-out, background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+  -o-transition: color 150ms ease-in-out, background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+  transition: color 150ms ease-in-out, background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+}
+
+.transition-all {
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+/* === Safari特定问题修复 === */
+/* 修复Safari中的sticky定位问题 */
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/* 修复Safari中的transform问题 */
+.transform {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* 修复Safari中的backdrop-filter问题 */
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* === 移动端Safari特定修复 === */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari特定样式 */
+  .ios-safari-fix {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* 修复iOS Safari中的100vh问题 */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  /* 修复iOS Safari中的输入框缩放问题 */
+  input, textarea, select {
+    font-size: 16px;
+  }
+}
+
+/* === Chrome特定修复 === */
+/* Chrome滚动条样式 */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+  /* Chrome特定样式 */
+  .chrome-only {
+    /* Chrome特定修复 */
+  }
+}
+
+/* === 高DPI屏幕适配 === */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Retina屏幕优化 */
+  .high-dpi-fix {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+/* === 打印样式兼容性 === */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}
+
+/* === 深色模式兼容性 === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+  
+  /* Safari深色模式优化 */
+  body {
+    -webkit-color-scheme: dark;
+  }
+}
+
+/* === 浏览器特定hack === */
+/* Safari hack */
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+    .safari-only {
+      /* Safari特定样式 */
+    }
+  }
+}
+
+/* Chrome hack */
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+  .chrome-only {
+    /* Chrome特定样式 */
+  }
+}
+
+/* Firefox hack */
+@-moz-document url-prefix() {
+  .firefox-only {
+    /* Firefox特定样式 */
+  }
+}
+
+/* === 性能优化 === */
+/* GPU加速 */
+.gpu-accelerated {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+
+/* 优化动画性能 */
+.optimized-animation {
+  will-change: transform, opacity;
+}
+
+/* === 调试辅助 === */
+.debug-safari {
+  outline: 2px solid red;
+}
+
+.debug-chrome {
+  outline: 2px solid blue;
+}
+
+/* 浏览器检测类 */
+body.safari {
+  /* Safari特定样式 */
+}
+
+body.chrome {
+  /* Chrome特定样式 */
+}
+
+body.firefox {
+  /* Firefox特定样式 */
+}
+
+body.mobile {
+  /* 移动端样式 */
+}

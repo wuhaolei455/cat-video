@@ -1,10 +1,14 @@
-/* 视频播放器演示样式 */
+/* 视频播放器演示样式 - 浏览器兼容性优化 */
 
 .video-player-demo {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  
+  /* Safari兼容性 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* 演示选择器 */
@@ -103,6 +107,32 @@
   height: auto;
   display: block;
   background: #000;
+  
+  /* Safari视频播放器兼容性 */
+  -webkit-playsinline: true;
+  object-fit: contain;
+  
+  /* 统一视频控件样式 */
+  outline: none;
+}
+
+/* Safari特定视频控件样式 */
+.video-element::-webkit-media-controls {
+  display: inherit !important;
+}
+
+.video-element::-webkit-media-controls-panel {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.video-element::-webkit-media-controls-play-button {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 50% !important;
+}
+
+/* Chrome特定视频控件样式 */
+.video-element::-webkit-media-controls-enclosure {
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .video-overlay {
