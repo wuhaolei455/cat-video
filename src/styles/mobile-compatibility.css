@@ -1,0 +1,94 @@
+/* 移动端兼容性修复 - iPad/iPhone特殊处理 */
+
+/* === iPad特殊修复 === */
+@media screen and (max-width: 1024px) {
+  /* iPad视口修复 */
+  .min-h-screen {
+    min-height: 100vh !important;
+    min-height: calc(var(--vh, 1vh) * 100) !important;
+  }
+  
+  /* iPad字体缩放修复 */
+  body {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+  
+  /* iPad触摸优化 */
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+  }
+  
+  /* iPad Grid布局修复 */
+  .grid {
+    display: -webkit-grid !important;
+    display: grid !important;
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* iPad按钮间距优化 */
+  .gap-3 {
+    gap: 0.75rem !important;
+  }
+  
+  /* iPad文字大小优化 */
+  .text-sm {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* === iPhone特殊修复 === */
+@media screen and (max-width: 480px) {
+  /* iPhone Grid改为单列 */
+  .grid-cols-3,
+  .lg\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .grid-cols-2,
+  .sm\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* iPhone按钮全宽 */
+  .inline-flex {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* iPhone文字大小 */
+  .text-4xl {
+    font-size: 1.8rem !important;
+  }
+  
+  .text-lg {
+    font-size: 1rem !important;
+  }
+}
+
+/* === iOS Safari特殊修复 === */
+@supports (-webkit-touch-callout: none) {
+  /* iOS 100vh问题 */
+  .min-h-screen {
+    min-height: -webkit-fill-available !important;
+  }
+  
+  /* iOS滚动优化 */
+  body {
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* iOS输入框缩放禁用 */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
