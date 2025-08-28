@@ -1,0 +1,49 @@
+{
+  "name": "solar-react-cli",
+  "version": "1.0.0",
+  "description": "一个完整的React脚手架CLI工具，包含Webpack配置、代码质量工具、测试环境等",
+  "main": "dist/index.js",
+  "bin": {
+    "solar": "dist/cli.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "cli",
+    "webpack",
+    "scaffold",
+    "boilerplate"
+  ],
+  "author": "Solar Team",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.1.1",
+    "ora": "^7.0.1",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/fs-extra": "^11.0.4",
+    "@types/shelljs": "^0.8.15",
+    "typescript": "^5.2.2",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.5"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

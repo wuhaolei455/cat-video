@@ -1,0 +1,290 @@
+/* 环境切换器样式 */
+.env-switcher {
+  position: fixed;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.env-switcher-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.env-switcher-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.env-switcher-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.env-switcher-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.env-switcher-current {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.env-switcher-current:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.env-icon {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.env-name {
+  margin-right: 6px;
+}
+
+.env-arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.env-arrow.open {
+  transform: rotate(180deg);
+}
+
+.env-switcher-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  overflow: hidden;
+  min-width: 280px;
+  animation: slideDown 0.2s ease;
+}
+
+.env-switcher-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  font-size: 13px;
+  color: #333;
+}
+
+.env-switcher-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.env-switcher-close:hover {
+  color: #333;
+}
+
+.env-option {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.env-option:hover {
+  background: #f8f9fa;
+}
+
+.env-option.active {
+  background: #e3f2fd;
+}
+
+.env-option-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.env-option-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.env-option-domain {
+  font-size: 12px;
+  color: #666;
+}
+
+.env-option-features {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.feature-tag {
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.feature-tag.vconsole {
+  background: #e8f5e8;
+  color: #2e7d32;
+}
+
+.feature-tag.api {
+  background: #e3f2fd;
+  color: #1976d2;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.env-switcher-footer {
+  padding: 8px 16px;
+  background: #f5f5f5;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.env-switcher-footer small {
+  color: #666;
+  font-size: 11px;
+}
+
+/* 隐藏状态 */
+.env-switcher-hidden {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+.env-switcher-hidden:hover {
+  opacity: 0.8;
+}
+
+/* 动画 */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .env-switcher-dropdown {
+    min-width: 260px;
+    max-width: calc(100vw - 40px);
+  }
+  
+  .env-switcher-top-right,
+  .env-switcher-bottom-right {
+    right: 10px;
+  }
+  
+  .env-switcher-top-left,
+  .env-switcher-bottom-left {
+    left: 10px;
+  }
+}
+
+/* 暗色主题支持 */
+@media (prefers-color-scheme: dark) {
+  .env-switcher-dropdown {
+    background: #2d2d2d;
+    color: white;
+  }
+  
+  .env-switcher-header {
+    background: #3d3d3d;
+    border-bottom-color: #555;
+    color: white;
+  }
+  
+  .env-switcher-footer {
+    background: #3d3d3d;
+    border-top-color: #555;
+  }
+  
+  .env-option:hover {
+    background: #3d3d3d;
+  }
+  
+  .env-option.active {
+    background: #1e3a8a;
+  }
+  
+  .env-option-name {
+    color: white;
+  }
+  
+  .env-option-domain {
+    color: #ccc;
+  }
+}
