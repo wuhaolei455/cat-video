@@ -101,9 +101,30 @@ export default function Home() {
                 >
                   🎯 forwardRef 演示
                 </a>
+                <a 
+                  href="/frontend-monitoring"
+                  className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-900 
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                >
+                  🔍 前端监控分析
+                </a>
+                <a 
+                  href="/video-smart-buffer"
+                  className="inline-flex items-center px-4 py-2 bg-purple-500 hover:bg-purple-600 
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                >
+                  📹 视频智能缓冲
+                </a>
+                <a 
+                  href="/lazy-img-frame"
+                  className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 
+                             text-white font-medium rounded-lg transition-colors duration-200 text-sm"
+                >
+                  🖼️ 图片分帧加载
+                </a>
               </div>
               <p className="mt-4 text-xs">
-                探索不同的 React 设计模式、状态管理方式和高级功能
+                探索不同的 React 设计模式、状态管理方式、性能优化技术和高级功能
               </p>
             </div>
           </div>
