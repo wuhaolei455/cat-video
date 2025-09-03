@@ -1,6 +1,11 @@
 "use client";
 import React, { useEffect, useState, useRef, useCallback } from "react";
 
+/**
+ * 1. 数据定义：图片指标接口、聚合性能统计
+ * 2. state：性能指标（总体加载和每张图片加载的具体性能）、监控状态、加载时间线（记录加载图片数量的变化）
+ * 3. flow：
+ */
 // 图片指标接口
 export interface ImageMetrics {
   id: number;
@@ -41,25 +46,24 @@ export type LoadingStrategy = 'no-lazy' | 'basic-lazy' | 'traditional-lazy' | 'f
 export function useImagePerformanceMonitor(strategy: LoadingStrategy) {
   const [imageMetrics, setImageMetrics] = useState<ImageMetrics[]>([]);
   const [performanceStats, setPerformanceStats] = useState<PerformanceStats>({
-    totalImages: 0,
+    totalImages: 0, 
     loadedImages: 0,
     errorImages: 0,
-    averageLoadTime: 0,
-    totalLoadTime: 0,
-    imagesInViewport: 0,
-    loadingProgress: 0,
+    averageLoadTime: 0, // 平均加载时间
+    totalLoadTime: 0, // 总加载时间
+    imagesInViewport: 0, // 视口内图片数量
+    loadingProgress: 0, // 加载进度
     networkRequests: 0,
-    firstImageLoadTime: 0,
-    lastImageLoadTime: 0,
-    totalLoadingDuration: 0,
+    firstImageLoadTime: 0, // 首图加载时间
+    lastImageLoadTime: 0, // 尾图加载时间
+    totalLoadingDuration: 0, // 总加载时长 
     loadingStartTime: 0,
     loadingEndTime: 0,
     peakConcurrentLoads: 0,
-    currentConcurrentLoads: 0,
+    currentConcurrentLoads: 0, // 当前并发加载数量
   });
   
   const [isMonitoring, setIsMonitoring] = useState(false);
-  const [loadingTimeline, setLoadingTimeline] = useState<Array<{time: number, count: number}>>([]);
   
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadOrderRef = useRef(0);
@@ -114,21 +118,7 @@ export function useImagePerformanceMonitor(strategy: LoadingStrategy) {
     });
   }, []);
 
-  // 更新加载时间线
-  const updateTimeline = useCallback(() => {
-    const now = performance.now() - startTimeRef.current;
-    setLoadingTimeline(prev => {
-      const newTimeline = [...prev];
-      const lastEntry = newTimeline[newTimeline.length - 1];
-      
-      // 只有当加载图片数量变化且时间间隔足够时才记录
-      if (!lastEntry || (now - lastEntry.time > 100 && lastEntry.count !== performanceStats.loadedImages)) {
-        newTimeline.push({ time: now, count: performanceStats.loadedImages });
-      }
-      
-      return newTimeline.slice(-50); // 只保留最近50个数据点
-    });
-  }, [performanceStats.loadedImages]);
+
 
   // 设置图片监控
   const setupImageMonitoring = useCallback((img: HTMLImageElement, id: number) => {
@@ -271,10 +261,7 @@ export function useImagePerformanceMonitor(strategy: LoadingStrategy) {
     loadOrderRef.current = 0;
     concurrentLoadsRef.current = 0;
     peakConcurrentRef.current = 0;
-    
-    // 重置数据
     setImageMetrics([]);
-    setLoadingTimeline([]);
     setPerformanceStats({
       totalImages: 0,
       loadedImages: 0,
@@ -330,19 +317,12 @@ export function useImagePerformanceMonitor(strategy: LoadingStrategy) {
     return () => clearTimeout(timer);
   }, [startMonitoring]);
 
-  // 定时更新时间线
-  useEffect(() => {
-    if (!isMonitoring) return;
-    
-    const interval = setInterval(updateTimeline, 200);
-    return () => clearInterval(interval);
-  }, [isMonitoring, updateTimeline]);
+
 
   return {
     imageMetrics,
     performanceStats,
     isMonitoring,
-    loadingTimeline,
     startMonitoring,
   };
 }

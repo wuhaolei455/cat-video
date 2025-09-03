@@ -1,14 +1,16 @@
 "use client";
 import React from "react";
 import { ImageMetrics, LoadingStrategy } from "./ImagePerformanceMonitor";
+import { WaterfallGrid } from "./WaterfallGrid";
 
 interface ImageGridProps {
   strategy: LoadingStrategy;
   imageMetrics: ImageMetrics[];
   imageCount?: number;
+  layoutMode?: 'grid' | 'waterfall';
 }
 
-export function ImageGrid({ strategy, imageMetrics, imageCount = 50 }: ImageGridProps) {
+export function ImageGrid({ strategy, imageMetrics, imageCount = 100, layoutMode = 'waterfall' }: ImageGridProps) {
   // 生成测试图片数组
   const imgs = Array.from({ length: imageCount }, (_, index) => ({
     id: index,
@@ -43,7 +45,7 @@ export function ImageGrid({ strategy, imageMetrics, imageCount = 50 }: ImageGrid
       'data-image-id': img.id,
       className: "w-full h-64 object-cover transition-opacity duration-300",
       style: {
-        opacity: imageMetrics.find(m => m.id === img.id)?.loaded ? 1 : 0.5
+        opacity: imageMetrics.find(m => m.id === img.id)?.loaded ? 1 : 0.8
       }
     };
 
@@ -61,6 +63,18 @@ export function ImageGrid({ strategy, imageMetrics, imageCount = 50 }: ImageGrid
     }
   };
 
+  // 如果是瀑布流模式，使用 WaterfallGrid 组件
+  if (layoutMode === 'waterfall') {
+    return (
+      <WaterfallGrid
+        strategy={strategy}
+        imageMetrics={imageMetrics}
+        imageCount={imageCount}
+      />
+    );
+  }
+
+  // 否则使用原始的网格布局
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">

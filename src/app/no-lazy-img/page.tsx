@@ -88,7 +88,7 @@ export default function NoLazyImgPage() {
           <div>
             <h4 className="font-semibold text-red-700 mb-2">🚫 加载策略问题</h4>
             <ul className="text-sm text-red-700 space-y-1">
-              <li>• 页面加载时立即请求所有50张图片</li>
+              <li>• 页面加载时立即请求所有100张图片</li>
               <li>• 同时发起大量网络请求</li>
               <li>• 无视图片是否在用户视口内</li>
               <li>• 浪费用户流量和带宽</li>
