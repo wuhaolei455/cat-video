@@ -176,6 +176,13 @@ player.setPlaybackRate(1.5);`}</code>
         <div className="mt-12 text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <a
+              href="/video-smart-buffer"
+              className="inline-flex items-center px-6 py-3 bg-purple-500 hover:bg-purple-600 
+                         text-white font-medium rounded-lg transition-colors duration-200"
+            >
+              📹 视频智能缓冲演示
+            </a>
+            <a
               href="/"
               className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 
                          text-white font-medium rounded-lg transition-colors duration-200"
@@ -190,7 +197,7 @@ player.setPlaybackRate(1.5);`}</code>
               🔄 useReducer 版本
             </a>
           </div>
-          <p className="mt-4 text-sm text-gray-500">查看其他状态管理模式演示</p>
+          <p className="mt-4 text-sm text-gray-500">查看智能缓冲优化和其他状态管理模式演示</p>
         </div>
       </div>
     </div>
