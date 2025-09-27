@@ -17,6 +17,96 @@ export default function Home() {
           </p>
         </header>
 
+        {/* 顶部快捷跳转按钮 */}
+        <nav className="mb-6">
+          <div className="flex flex-wrap gap-2 justify-center">
+            <a 
+              href="/"
+              className="inline-flex items-center px-3 py-1.5 bg-blue-500 hover:bg-blue-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              🧩 useState 版本 (当前)
+            </a>
+            <a 
+              href="/reducer"
+              className="inline-flex items-center px-3 py-1.5 bg-green-500 hover:bg-green-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              🔄 useReducer 版本
+            </a>
+            <a 
+              href="/video"
+              className="inline-flex items-center px-3 py-1.5 bg-purple-500 hover:bg-purple-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              🎥 视频模块演示
+            </a>
+            <a 
+              href="/form-demo"
+              className="inline-flex items-center px-3 py-1.5 bg-orange-500 hover:bg-orange-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              📝 表单演示
+            </a>
+            <a 
+              href="/render-props-demo"
+              className="inline-flex items-center px-3 py-1.5 bg-pink-500 hover:bg-pink-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              🎨 Render Props 示例
+            </a>
+            <a 
+              href="/render-props-practice"
+              className="inline-flex items-center px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              ✍️ Render Props 练习
+            </a>
+            <a 
+              href="/debounce-test"
+              className="inline-flex items-center px-3 py-1.5 bg-teal-500 hover:bg-teal-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              ⏱️ 防抖测试
+            </a>
+            <a 
+              href="/ssr-test"
+              className="inline-flex items-center px-3 py-1.5 bg-red-500 hover:bg-red-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              🔧 SSR 水合测试
+            </a>
+            <a 
+              href="/ref-demo"
+              className="inline-flex items-center px-3 py-1.5 bg-yellow-500 hover:bg-yellow-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              🎯 forwardRef 演示
+            </a>
+            <a 
+              href="/frontend-monitoring"
+              className="inline-flex items-center px-3 py-1.5 bg-gray-800 hover:bg-gray-900 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              🔍 前端监控
+            </a>
+            <a 
+              href="/video-smart-buffer"
+              className="inline-flex items-center px-3 py-1.5 bg-purple-500 hover:bg-purple-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              📹 视频智能缓冲
+            </a>
+            <a 
+              href="/lazy-img-frame"
+              className="inline-flex items-center px-3 py-1.5 bg-green-500 hover:bg-green-600 
+                         text-white font-medium rounded-md transition-colors duration-200 text-sm"
+            >
+              🖼️ 图片分帧加载
+            </a>
+          </div>
+        </nav>
+
         <main className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8">
           {/* 组合模式的核心实现 */}
           <FlowProvider totalSteps={3} initialData={{}}>
