@@ -66,12 +66,19 @@ export default function Home() {
                 >
                   🎭 蒙层系统演示
                 </a>
-                <a 
+                {/* <a 
                   href="/package-demo"
                   className="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 
                              text-white font-medium rounded-lg transition-colors duration-200"
                 >
                   📦 Package 演示
+                </a> */}
+                <a 
+                  href="/leo-video"
+                  className="inline-flex items-center px-4 py-2 bg-red-500 hover:bg-red-600 
+                             text-white font-medium rounded-lg transition-colors duration-200"
+                >
+                  🎬 Leo视频播放器
                 </a>
           </div>
           <p className="mt-2 text-xs">
