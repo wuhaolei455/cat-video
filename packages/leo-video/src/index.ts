@@ -7,14 +7,6 @@ export type {
   EventLog as LeoEventLog
 } from './components/LeoVideoPlayer';
 
-// Cover增强组件导出
-export { default as LeoVideoPlayerWithCovers } from './components/LeoVideoPlayerWithCovers';
-export type {
-  LeoVideoPlayerWithCoversProps,
-  LeoVideoPlayerWithCoversRef,
-  CoverOptions
-} from './components/LeoVideoPlayerWithCovers';
-
 // Hook导出
 export { default as useLeoVideo } from './hooks/useLeoVideo';
 export type { 
@@ -22,17 +14,6 @@ export type {
   UseLeoVideoReturn,
   PlayerState
 } from './hooks/useLeoVideo';
-
-// Cover Hook导出
-export { 
-  useCoverManager,
-  useDefaultCoverManager 
-} from './hooks/useCoverManager';
-export type {
-  UseCoverManagerOptions,
-  UseCoverManagerReturn,
-  UseDefaultCoverManagerOptions
-} from './hooks/useCoverManager';
 
 // 核心类型导出
 export type {
@@ -89,47 +70,6 @@ export {
   isVideoState,
   assertVideoConfig
 } from './utils';
-
-// Cover模块导出
-export type {
-  // Cover类型
-  CoverType,
-  CoverVisibility,
-  CoverLayer,
-  CoverPosition,
-  CoverAnimation,
-  CoverEventType,
-  CoverEventData,
-  CoverState,
-  CoverConfig,
-  CommonCoverConfig,
-  BusinessCoverConfig,
-  CoverManagerConfig,
-  CoverContainerState,
-  
-  // Cover接口
-  ICover,
-  ICoverBusinessLogic,
-  ICoverManager,
-  ICoverPresetFactory,
-  ICoverStateManager
-} from './types';
-
-export {
-  // Cover核心类
-  CoverEventEmitter,
-  BaseCover,
-  CoverManager,
-  CoverPresetFactory,
-  CoverStateManager,
-  GlobalCoverStateManager,
-  BusinessCoverStateManager,
-  
-  // Cover工厂函数
-  createCoverManager,
-  createCoverPresetFactory,
-  createCoverStateManager
-} from './cover';
 
 // 版本信息
 export const version = '1.0.0';

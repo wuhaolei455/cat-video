@@ -474,6 +474,3 @@ body {
     background-color: #1f2937;
   }
 }
-
-/* 导入Cover系统样式 */
-@import "../styles/covers.css";

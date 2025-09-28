@@ -1,11 +1,11 @@
 // HLS 流媒体播放器 - 支持自适应比特率流
 
 import Hls from 'hls.js';
-import type {
-  VideoConfig,
-  HLSConfig,
-  HLSVideoConfig,
-  VideoQuality,
+import type { 
+  VideoConfig, 
+  HLSConfig, 
+  HLSVideoConfig, 
+  VideoQuality, 
   VideoState,
   VideoError,
   VideoEventType

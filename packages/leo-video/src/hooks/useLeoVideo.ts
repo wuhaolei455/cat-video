@@ -1,12 +1,12 @@
 import { useRef, useCallback, useState, useEffect } from 'react';
-import {
-  VideoConfig,
-  VideoEventType,
-  VideoEventData,
-  VideoState,
-  VideoQuality,
+import { 
+  VideoConfig, 
+  VideoEventType, 
+  VideoEventData, 
+  VideoState, 
+  VideoQuality, 
   PlaybackRate,
-  IVideoPlayer
+  IVideoPlayer 
 } from '../types';
 import { createSmartVideoPlayer } from '../VideoPlayerFactory';
 
