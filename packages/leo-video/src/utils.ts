@@ -1,5 +1,10 @@
 import Hls from 'hls.js';
-import { VideoConfig, VideoFormat, VideoState, HLSVideoConfig } from './types';
+import {
+  VideoConfig,
+  VideoFormat,
+  VideoState,
+  HLSVideoConfig
+} from './types';
 
 // HLS支持检测结果
 export interface HLSSupportInfo {

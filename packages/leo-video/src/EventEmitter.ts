@@ -1,8 +1,8 @@
 // 泛型事件发射器 - 支持类型安全的事件系统
 
-import type { 
-  VideoEventType, 
-  VideoEventListener, 
+import type {
+  VideoEventType,
+  VideoEventListener,
   VideoEventData,
   VideoEventListeners,
   VideoEventMap,
